@@ -1,0 +1,1 @@
+https://www.slideshare.net/slideshow/apache-doris-incubating-introduction/175949346
