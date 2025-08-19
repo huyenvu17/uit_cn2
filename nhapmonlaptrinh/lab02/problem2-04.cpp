@@ -1,20 +1,27 @@
-#include <iostream>
-#include <cmath>    // Thư viện cho hàm floor()
-#include <cstdio>   // Thư viện cho hàm printf()
 
-int main() {
+#include <iostream>
+#include <cmath>
+
+
+int main()
+{
     double a;
     int n;
-
     std::cin >> a >> n;
 
-    double scaled_a = a * n;
+    // thêm code duoi day
+    // Tách phần nguyên
+    int integer_part = (int)a;
+    // Lấy phần thập phân
+    double decimal_part = a - integer_part;
     
-    double rounded_scaled_a = floor(scaled_a + 0.5); 
+    // Nhân phần thập phân với n và làm tròn
+    double rounded_decimal = round(decimal_part * n);
     
-    double final_result = rounded_scaled_a / static_cast<double>(n);
-
-    printf("%.10f\n", final_result);
-
-    return 0;
+    // Tính kết quả cuối cùng: phần nguyên + phần thập phân đã làm tròn/n
+    double result = integer_part + rounded_decimal/n;
+    
+    std::cout.precision(10);
+    std::cout.setf(std::ios::fixed);
+    std::cout << result;
 }
